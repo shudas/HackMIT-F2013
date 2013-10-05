@@ -24,7 +24,8 @@ def get_wallpapers(terms):
             + '?key=' + api_key
             + '&cx=' + search_engine_id
             + '&searchType=' + 'image'
-            + '&imageSearchResultSetSize=' + 'large'
+            + '&imageSearchResultSetSize=' + 'large' # Lots of images
+            + '&tbs=' + 'isz:l' # Large images
             + '&q=' + terms)
     return requests.get(query)
 
