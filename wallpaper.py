@@ -11,16 +11,20 @@ def hello():
 
 @app.route('/minimal')
 def minimal():
+    result = get_wallpapers(["Death Note", "Avatar the Last Airbender"])
+    return render_template("minimal.html", result=result)
+
+def get_wallpapers(show_titles):
     api_key = os.environ['API_KEY']
     search_engine_id = os.environ['SEARCH_ENGINE_ID']
+    
     query = ('https://www.googleapis.com/customsearch/v1'
             + '?key=' + api_key
             + '&cx=' + search_engine_id
             + '&searchType=' + 'image'
             + '&imageSearchResultSetSize=' + 'large'
-            + '&q=' + 'death+note') # Temporarily hard-coded
-    result = requests.get(query)
-    return render_template("minimal.html", result=result)
+            + '&q=' + 'death note') # Temporarily hard-coded
+    return requests.get(query)
 
 if __name__ == '__main__':
     app.run(debug=True)
