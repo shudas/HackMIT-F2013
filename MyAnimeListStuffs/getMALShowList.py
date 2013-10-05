@@ -9,6 +9,7 @@ import os, time
 from data import mal_data_schema
 from database import db as local_database
 from globs import ac_log_path, ac_data_path
+
 def _getAnimeList(username):
     # """
     # Retrive Anime XML from MyAnimeList server.
