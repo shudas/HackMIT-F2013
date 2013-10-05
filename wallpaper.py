@@ -17,13 +17,16 @@ def minimal():
 def get_wallpapers(show_titles):
     api_key = os.environ['API_KEY']
     search_engine_id = os.environ['SEARCH_ENGINE_ID']
+
+    wallpapers = [title + ' wallpaper' for title in show_titles]
+    terms = " OR ".join(wallpapers)
     
     query = ('https://www.googleapis.com/customsearch/v1'
             + '?key=' + api_key
             + '&cx=' + search_engine_id
             + '&searchType=' + 'image'
             + '&imageSearchResultSetSize=' + 'large'
-            + '&q=' + 'death note') # Temporarily hard-coded
+            + '&q=' + terms) # Temporarily hard-coded
     return requests.get(query)
 
 if __name__ == '__main__':
