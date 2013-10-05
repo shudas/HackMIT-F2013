@@ -18,7 +18,7 @@ def minimal():
             + '&cx=' + search_engine_id
             + '&q=' + 'death+note') # Temporarily hard-coded
     result = requests.get(query)
-    render_template("minimal.html", result=result)
+    return render_template("minimal.html", result=result)
 
 if __name__ == '__main__':
     app.run(debug=True)
