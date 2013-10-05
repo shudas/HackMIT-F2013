@@ -11,23 +11,25 @@ def hello():
 
 @app.route('/minimal')
 def minimal():
-    result = get_wallpapers(["Death Note", "Avatar the Last Airbender"])
-    return render_template("minimal.html", result=result)
+    terms = get_terms(["Death Note", "Avatar the Last Airbender"])
+    result = get_wallpapers(terms)
+    return render_template("minimal.html", result=result, terms=terms)
 
-def get_wallpapers(show_titles):
+def get_wallpapers(terms):
     api_key = os.environ['API_KEY']
     search_engine_id = os.environ['SEARCH_ENGINE_ID']
-
-    wallpapers = [title + ' wallpaper' for title in show_titles]
-    terms = " OR ".join(wallpapers)
     
     query = ('https://www.googleapis.com/customsearch/v1'
             + '?key=' + api_key
             + '&cx=' + search_engine_id
             + '&searchType=' + 'image'
             + '&imageSearchResultSetSize=' + 'large'
-            + '&q=' + terms) # Temporarily hard-coded
+            + '&q=' + terms)
     return requests.get(query)
+
+def get_terms(show_titles):
+    wallpapers = [title + ' wallpaper' for title in show_titles]
+    return " OR ".join(wallpapers)
 
 if __name__ == '__main__':
     app.run(debug=True)
