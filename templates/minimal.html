@@ -1,10 +1,23 @@
 <html lang="en">
-<head>
-    <title>Baka-Mockup</title>
-</head>
-<body>
-    <div id="json-dump">
-        {{result.json()}}
-    </div>
-</body>
+    <head>
+        <title>Baka-Mockup</title>
+    </head>
+    <body>
+        <div id="query">
+            {{terms}}
+        </div>
+        <div id="results">
+            <ul>
+                {% for item in result.json()['items'] %}
+                    <li>
+                    {% if item['image'] %}
+                    <a href="{{item['link']}}">
+                        <img src="{{item['image']['thumbnailLink']}}"></img>
+                    </a>
+                    {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
 </html>
