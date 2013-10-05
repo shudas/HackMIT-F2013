@@ -17,6 +17,7 @@ def minimal():
             + '?key=' + api_key
             + '&cx=' + search_engine_id
             + '&searchType=' + 'image'
+            + '&imageSearchResultSetSize=' + 'large'
             + '&q=' + 'death+note') # Temporarily hard-coded
     result = requests.get(query)
     return render_template("minimal.html", result=result)
