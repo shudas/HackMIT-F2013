@@ -8,15 +8,17 @@
         </div>
         <div id="results">
             <ul>
-                {% for item in result.json()['items'] %}
-                    <li>
-                    {% if item['image'] %}
-                    <a href="{{item['link']}}">
-                        <img src="{{item['image']['thumbnailLink']}}"></img>
-                    </a>
-                    {% endif %}
-                    </li>
-                {% endfor %}
+                {% if result.json() %}
+                    {% for item in result.json()['items'] %}
+                        <li>
+                        {% if item['image'] %}
+                        <a href="{{item['link']}}">
+                            <img src="{{item['image']['thumbnailLink']}}"></img>
+                        </a>
+                        {% endif %}
+                        </li>
+                    {% endfor %}
+                {% endif %}
             </ul>
         </div>
     </body>

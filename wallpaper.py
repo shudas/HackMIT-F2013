@@ -27,7 +27,8 @@ def get_wallpapers(terms):
             + '&imageSearchResultSetSize=' + 'large' # Lots of images
             + '&tbs=' + 'isz:l' # Large images
             + '&as_q=' + 'wallpaper'
-            + '&as_oq=' + terms)
+            + '&as_oq=' + terms
+            + '&q=' + terms)
     return requests.get(query)
 
 def get_terms(show_titles):
