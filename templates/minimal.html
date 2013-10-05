@@ -9,11 +9,13 @@
         <div id="results">
             <ul>
                 {% for item in result.json()['items'] %}
-                {% if item['image'] %}
-                <a href="{{item['link']}}">
-                    <img src="{{item['image']['thumbnailLink']}}"></img>
-                </a>
-                {% endif %}
+                    <li>
+                    {% if item['image'] %}
+                    <a href="{{item['link']}}">
+                        <img src="{{item['image']['thumbnailLink']}}"></img>
+                    </a>
+                    {% endif %}
+                    </li>
                 {% endfor %}
             </ul>
         </div>

@@ -1,4 +1,5 @@
 import os
+import string
 import requests
 from flask import Flask, render_template
 
@@ -29,7 +30,8 @@ def get_wallpapers(terms):
 
 def get_terms(show_titles):
     wallpapers = [title + ' wallpaper' for title in show_titles]
-    return " OR ".join(wallpapers)
+    with_spaces = " OR ".join(wallpapers)
+    return string.replace(with_spaces, " ", "+")
 
 if __name__ == '__main__':
     app.run(debug=True)
