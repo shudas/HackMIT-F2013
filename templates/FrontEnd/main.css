@@ -1,6 +1,6 @@
 body
 {
-	background-color: #040404;
+	background-color: #322A38;
 }
 
 div.mainContent
@@ -21,11 +21,16 @@ div.img img
 {
 	display: inline;
 	margin: 3px;
-	border: 5px solid #ffffff;
+	border: 5px solid #FF662C;
 	width: 200px;
+	border-radius: 10px;
 }
 
-div.img a:hover img {border: 5px solid #0000ff;}
+div.img a:hover img 
+{
+	border: 5px solid #EB3F00;
+	box-shadow: 4px 4px 2px #000000;
+}
 div.desc
 {
 	text-align: center;
