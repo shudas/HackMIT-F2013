@@ -7,7 +7,9 @@
             <ul>
                 {% for item in result.json()['items'] %}
                 <li>{{item['htmlTitle']}}</li>
-                <img src="{{item['image']['thumbnailLink']}}"></img>
+                {% if item['image'] %}
+                    <img src="{{item['image']['thumbnailLink']}}"></img>
+                {% endif %}
                 {% endfor %}
             </ul>
         </div>
