@@ -1,7 +1,7 @@
 import os
 import string
 import requests
-from flask import Flask, render_template, session, request
+from flask import Flask, render_template, session, request, redirect, url_for
 
 from MyAnimeListStuffs.getMALShowList import _getAnimeList
 
