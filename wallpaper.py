@@ -26,7 +26,7 @@ def results():
             username = request.form['username']
             session['username'] = username
             session['shows'] = _getAnimeList(session['username'])
-        elif request.form['shows']
+        elif request.form['shows']:
             session['username'] = "NONE"
             session['shows'] = request.form['shows']
 
