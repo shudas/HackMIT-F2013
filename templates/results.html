@@ -1,0 +1,25 @@
+<html lang="en">
+    <head>
+        <title>Baka-Mockup</title>
+    </head>
+    <body>
+        <div id="query">
+            {{terms}}
+        </div>
+        <div id="results">
+            <ul>
+                {% if result.json() %}
+                    {% for item in result.json()['items'] %}
+                        <li>
+                        {% if item['image'] %}
+			<div class="img"><a href="{{item['link']}}">
+                            <img src="{{item['image']['thumbnailLink']}}"></img>
+                        </a></div>
+                        {% endif %}
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </body>
+</html>
