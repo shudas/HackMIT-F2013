@@ -23,7 +23,7 @@ div.img img
 	display: inline;
 	margin: 3px;
 	border: 5px solid #FF662C;
-	width: 200px;
+	width: auto;
 	border-radius: 10px;
 }
 
