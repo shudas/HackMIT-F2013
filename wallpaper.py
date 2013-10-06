@@ -22,12 +22,17 @@ def hello():
 @app.route('/results', methods=['GET', 'POST'])
 def results():
     if request.method == 'POST':
-        username = request.form['username']
-        session['username'] = username
+        if request.form['username']:
+            username = request.form['username']
+            session['username'] = username
+            session['shows'] = _getAnimeList(session['username'])
+        elif request.form['shows']
+            session['username'] = "NONE"
+            session['shows'] = request.form['shows']
+
         return redirect(url_for('results'))
     else:
-        shows = _getAnimeList(session['username'])
-        terms = get_terms(shows)
+        terms = get_terms(session['shows'])
         result = get_wallpapers(terms)
         return render_template("results.html", result=result, username=session['username'])
 

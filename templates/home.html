@@ -5,8 +5,10 @@
     </head>
     <body>
         <form action="{{url_for('results')}}" method="post">
-            <p>MyAnimeList Username:</p>
-            <input type="text" name="username">
+            <p>Enter your MyAnimeList username:</p>
+            <input type="text" name="username"><br/>
+            <p>Or, enter a list of shows:</p>
+            <input type="text" name="shows"><br/>
             <input type="submit" value="Get Wallpapers">
         </form>
     </body>
