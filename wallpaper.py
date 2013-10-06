@@ -28,7 +28,7 @@ def results():
             session['shows'] = _getAnimeList(session['username'])
         elif request.form['shows']:
             session['username'] = "NONE"
-            session['shows'] = request.form['shows']
+            session['shows'] = request.form['shows'].split(',')
 
         return redirect(url_for('results'))
     else:
