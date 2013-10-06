@@ -1,7 +1,7 @@
 import os
 import string
 import requests
-from flask import Flask, render_template, session
+from flask import Flask, render_template, session, request
 
 from MyAnimeListStuffs.getMALShowList import _getAnimeList
 
