@@ -20,7 +20,7 @@ def hello():
 
 @app.route('/results', methods=['GET', 'POST'])
 def results():
-    if request.method == 'POST'
+    if request.method == 'POST':
         username = request.form['username']
         session['username'] = username
         return redirect(url_for('results'))
