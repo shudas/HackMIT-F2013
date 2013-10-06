@@ -12,7 +12,7 @@ def hello():
 
 @app.route('/minimal')
 def minimal():
-    terms = get_terms(["Code Geass", "Full Metal Alchemist"])
+    terms = get_terms(["Death Note", "Avatar the Last Airbender"])
     result = get_wallpapers(terms)
     return render_template("minimal.html", result=result, terms=terms)
 
@@ -25,14 +25,13 @@ def get_wallpapers(terms):
             + '&cx=' + search_engine_id
             + '&searchType=' + 'image'
             + '&imageSearchResultSetSize=' + 'large' # Lots of images
-            + '&tbs=' + 'isz:l' # Large images
-            + '&as_q=' + 'wallpaper'
-            + '&as_oq=' + terms
+            + '&imgSize=' + 'huge'
             + '&q=' + terms)
     return requests.get(query)
 
 def get_terms(show_titles):
-    with_spaces = " OR ".join(show_titles)
+    wallpapers = [title + ' wallpaper' for title in show_titles]
+    with_spaces = " OR ".join(wallpapers)
     return string.replace(with_spaces, " ", "+")
 
 if __name__ == '__main__':
