@@ -40,7 +40,7 @@ def get_wallpapers(terms):
             + '&cx=' + search_engine_id
             + '&searchType=' + 'image'
             + '&imageSearchResultSetSize=' + 'large' # Lots of images
-            + '&imgSize=' + 'huge'
+            + '&imgSize=' + 'large'
             #+ '&imgColorType=' + 'color'
             + '&num=' + '10'
             + '&q=' + terms)
