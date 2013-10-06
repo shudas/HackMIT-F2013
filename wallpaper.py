@@ -27,7 +27,7 @@ def results():
         return redirect(url_for('results'))
     else:
         shows = _getAnimeList(session['username'])
-        terms = get_terms(["Death Note", "Avatar the Last Airbender"])
+        terms = get_terms(shows)
         result = get_wallpapers(terms)
         return render_template("results.html", result=result, username=session['username'])
 
