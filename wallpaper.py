@@ -17,7 +17,7 @@ def minimal():
     return render_template("minimal.html", result=result, terms=terms)
 
 @app.route('/results')
-def minimal():
+def results():
     terms = get_terms(["Death Note", "Avatar the Last Airbender"])
     result = get_wallpapers(terms)
     return render_template("resutlts.html", result=result)
