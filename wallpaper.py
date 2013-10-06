@@ -20,7 +20,7 @@ def minimal():
 def results():
     terms = get_terms(["Death Note", "Avatar the Last Airbender"])
     result = get_wallpapers(terms)
-    return render_template("resutlts.html", result=result)
+    return render_template("results.html", result=result)
 
 def get_wallpapers(terms):
     api_key = os.environ['API_KEY']
