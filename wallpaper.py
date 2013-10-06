@@ -7,6 +7,7 @@ from MyAnimeListStuffs.getMALShowList import _getAnimeList
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
+app.secret_key = 'supah_secret'
 
 @app.route('/')
 def hello():
