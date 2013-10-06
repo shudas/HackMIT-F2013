@@ -1,26 +1,34 @@
 import os
 import string
 import requests
-from flask import Flask, render_template
+from flask import Flask, render_template, session
+
+from MyAnimeListStuffs.getMALShowList import _getAnimeList
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 
 @app.route('/')
 def hello():
-    return 'SECRET=' + os.environ['SECRET']
+    return render_template("home.html")
 
-@app.route('/minimal')
-def minimal():
-    terms = get_terms(["Death Note", "Avatar the Last Airbender"])
-    result = get_wallpapers(terms)
-    return render_template("minimal.html", result=result, terms=terms)
+#@app.route('/minimal')
+#def minimal():
+    #terms = get_terms(["Death Note", "Avatar the Last Airbender"])
+    #result = get_wallpapers(terms)
+    #return render_template("minimal.html", result=result, terms=terms)
 
-@app.route('/results')
+@app.route('/results', methods=['GET', 'POST'])
 def results():
-    terms = get_terms(["Death Note", "Avatar the Last Airbender"])
-    result = get_wallpapers(terms)
-    return render_template("results.html", result=result)
+    if request.method == 'POST'
+        username = request.form['username']
+        session['username'] = username
+        return redirect(url_for('results'))
+    else:
+        shows = _getAnimeList(session['username'])
+        terms = get_terms(["Death Note", "Avatar the Last Airbender"])
+        result = get_wallpapers(terms)
+        return render_template("results.html", result=result, username=session['username'])
 
 def get_wallpapers(terms):
     api_key = os.environ['API_KEY']

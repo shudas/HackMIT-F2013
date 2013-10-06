@@ -4,9 +4,6 @@
         <link rel="stylesheet" type="text/css" href="static/css/main.css">
     </head>
     <body>
-        <div id="query">
-            {{terms}}
-        </div>
         <div id="mainContent">
         {% if result.json() %}
             {% for item in result.json()['items'] %}
@@ -16,8 +13,9 @@
                 </a></div>
                 {% endif %}
             {% endfor %}
+        {% else %}
+            <p>The MyAnimeList account {{username}} either doesn't exist or doesn't like any anime.</p>
         {% endif %}
-            </ul>
         </div>
     </body>
 </html>
