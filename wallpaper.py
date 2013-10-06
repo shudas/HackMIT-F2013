@@ -41,7 +41,8 @@ def get_wallpapers(terms):
             + '&searchType=' + 'image'
             + '&imageSearchResultSetSize=' + 'large' # Lots of images
             + '&imgSize=' + 'huge'
-            + '&imgColorType=' + 'color'
+            #+ '&imgColorType=' + 'color'
+            + '&num=' + '10'
             + '&q=' + terms)
     return requests.get(query)
 
