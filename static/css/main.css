@@ -1,0 +1,39 @@
+body
+{
+	background-color: #322A38;
+}
+
+div.mainContent
+{
+	margin-top:100px;
+}
+
+div.img
+{
+/*	background-color: #3F3F3F;
+	margin: 2px;
+	border: 1px solid #0000ff;
+	float: left;
+	text-align: center;*/
+	display: inline;
+}	
+div.img img
+{
+	display: inline;
+	margin: 3px;
+	border: 5px solid #FF662C;
+	width: 200px;
+	border-radius: 10px;
+}
+
+div.img a:hover img 
+{
+	border: 5px solid #EB3F00;
+	box-shadow: 4px 4px 2px #000000;
+}
+div.desc
+{
+	text-align: center;
+	font-weight: normal;
+	margin: 2px;
+}
